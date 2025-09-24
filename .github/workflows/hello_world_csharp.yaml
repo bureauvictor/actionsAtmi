@@ -16,4 +16,4 @@ jobs:
         with:
           dotnet-version: '8.0.x'
       - name: Hola Mundo Hello World correr Script
-        run: dotnet run --project ./ -- hello_world.cs
+        run: dotnet run hello_world.cs
