@@ -12,4 +12,4 @@ jobs:
       #- name: Define env variable
        # run: echo "UserName=${{ github.actor }}" >> $GITHUB_ENV
       - name: Hola Mundo Hello World correr Script
-        run: hello_world.cs
+        run: dotnet run hello_world.cs
