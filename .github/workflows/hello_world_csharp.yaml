@@ -2,7 +2,7 @@ name: hello_world_csharp
 on: [push]
 jobs:
   hola-mundo:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       #- name: Public IP
         #id: ip
