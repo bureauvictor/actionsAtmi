@@ -1,0 +1,17 @@
+name: hola-mundo
+on: [push]
+jobs:
+  hola-mundo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Public IP
+        id: ip
+        uses: haythem/public-ip@v1.3
+      - name: Hola Mundo Hello World
+        run: echo !Hola Mundo ${{ steps.ip.outputs.ipv4 }}!
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Run index
+        run: mode index.js
