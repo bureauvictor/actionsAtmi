@@ -1,0 +1,30 @@
+name: Corriendo 3 triggers Github Actions
+run-name: Estoy aprendiendo como funcionan los triggers
+#on: [push, schedule, pull_request]
+on: 
+  push:
+    #branches:
+     # -'main'
+      #-'release'
+      #-'**/github_actions/**'
+  schedule:
+    - cron: '0 22 * * 6'
+  pull_request:
+
+jobs:
+  action-triggered:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Definir variable
+        run: echo Atención se ha ejecutado una acción con multiples triggers
+      #- name: Correr script
+       # run: python hola_mundo.py
+  
+
+
+  
+    
+  
+        
