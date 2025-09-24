@@ -8,4 +8,4 @@ jobs:
         id: ip
         uses: haythem/public-ip@v1.3
       - name: Hola Mundo Hello World
-        run: python .github/workflows/hola_mundo.py
+        run: python hola_mundo.py
