@@ -1,16 +1,16 @@
 name: Triggers
 run-name: ¡Estoy aprendiendo a usar diferentes Triggers!
 on:
-  push:
-    branches:
-      - master
-  pull_request:
-    types: [opened, synchronize, reopened]
-    paths:
-      - '**.py'
-  issues:
-    types:
-      - labeled
+  #push:
+    # branches:
+   #    - master
+  # pull_request:
+   #  types: [opened, synchronize, reopened]
+   #  paths:
+   #    - '**.py'
+  # issues:
+  #   types:
+   #    - labeled
   workflow_dispatch:
     inputs:
       lenguaje_favorito:
