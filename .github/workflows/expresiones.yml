@@ -1,57 +1,27 @@
 name: Expresiones
-run-name: I am learding to use github actions, currently i am using expressions
-env:
-  myNull: ${{ null }}
-  myBoolean: ${{ false }}
-  myIntegerNumber: ${{ 711 }}
-  myFloatNumber: ${{ -9.2 }}
-  myHexNumber: ${{ 0xff }}
-  myExponentialNumber: ${{ -2.99e-2 }}
-  1: Mona
-  2: the
-  3: Octocat
-  myStringInBraces: ${{ 'It''s open source!' }}
-  MY_ENV_VAR: ${{ github.ref == 'refs/heads/main' && 'value_for_main_branch' || 'value_for_other_branches' }}
-on: [push, pull_request, issues]
+run-name: ¡Estoy aprendiendo a usar Expresiones!
+on:
+  workflow_dispatch:
+    inputs:
+      edad:
+        description: 'Edad'
+        required: true
+        type: integer
+      nombre:
+        description: 'Tu nombre'
+        required: true
+        default: 'Juan'
+        type: string
 jobs:
-  example:
-    if: ${{ github.event_name == 'workflow_dispatch' }}
+  mayor:
+    if: ${{ toJson(inputs.edad) >= 18 }} 
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Definir variable
-        run: echo "USERNAME=${{ github.actor }}" >> $GITHUB_ENV
       - name: Correr script
-        run: python hola_mundo.py
-  example1:
-    if: ${{ github.event_name == 'push' && contains($myStringInBraces, 'source')}}
+        run: echo ${{ inputs.nombre }} es mayor de edad
+  menor:
+    if: ${{ ToJson(inputs.edad) < 18 }} 
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Definir variable
-        run: echo "USERNAME=${{ github.actor }}" >> $GITHUB_ENV
-      - name: Create JSON
-        run: echo "${{ toJson(github) }}"
       - name: Correr script
-        run: python hola_mundo.py
-  example2:
-    if: contains(github.event.issue.labels.*.name, 'bug') 
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Definir variable
-        run: echo "USERNAME=${{ github.actor }}" >> $GITHUB_ENV
-      - name: Create JSON
-        run: echo "${{ toJson(github) }}"
-      - name: Greet Mona
-        run: echo format('{{Hello {0} {1} {2}!}}', ${{1}}, ${{2}}, ${{3}})
-      - name: Correr script
-        run: python hola_mundo.py
-
-
-
- 
-    
+        run: echo ${{ inputs.nombre }} es menor de edad
